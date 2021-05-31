@@ -98,11 +98,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use './../assets/styles/var.scss';
 .container {
   padding: 1em 6em;
   font-weight: bold;
   display: flex;
-  background-color: #faf8eb;
+  background-color: var.$secondary-color;
   justify-content: space-between;
   position: relative;
   min-height: 42px;
@@ -119,7 +120,7 @@ export default {
         content: "";
         width: 30px;
         height: 30px;
-        background-color: #fad41b;
+        background-color: var.$primay-color;
         top: 0;
         left: 50%;
         transform: translateX(-15px);
@@ -186,6 +187,7 @@ export default {
   align-items: center;
   .icon {
     margin-right: 5px;
+    cursor: pointer;
   }
   p {
     margin-right: 1em;
