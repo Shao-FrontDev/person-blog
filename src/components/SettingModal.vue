@@ -1,42 +1,28 @@
 <template>
   <div>
-    <Modal
-      :width="400 + 'px'"
-      :height="450 + 'px'"
-      :backgroundColor="bgColor"
-      :visibility="status"
-      @close="close"
-    >
+    <Modal :visibility="visibility">
       <template v-slot:title>
-        <div>
-          留言
+        <div class="title">
+          Setting
         </div>
       </template>
+      <BgColorPicker />
     </Modal>
   </div>
 </template>
 
 <script>
+import BgColorPicker from "./BgColorPicker.vue";
 import Modal from "./Modal.vue";
 export default {
   name: "SettingModal",
-  data() {
-    return {
-      status: true,
-    };
-  },
   components: {
     Modal,
-  },
-  methods: {
-    close(status) {
-      console.log("close");
-      this.status = status;
-    },
+    BgColorPicker,
   },
   computed: {
-    bgColor() {
-      return "#fff";
+    visibility() {
+      return this.$store.getters.BgColor;
     },
   },
 };

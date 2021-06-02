@@ -2,38 +2,25 @@
   <div class="home">
     <h1>We are all in the gutter,</h1>
     <h1>but some of us are looking at the stars.</h1>
-    <Modal :visibility="visibility">
-      <template v-slot:title>
-        <div class="title">
-          Setting
-        </div>
-      </template>
-      <BgColorPicker />
-    </Modal>
     <SettingModal />
+    <MessageModal />
     <HomeNav />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import MessageModal from "../components/MessageModal.vue";
 import SettingModal from "../components/SettingModal.vue";
-import BgColorPicker from "../components/BgColorPicker.vue";
-import Modal from "../components/Modal.vue";
 import HomeNav from "../components/HomeNav.vue";
 export default {
   name: "Home",
   components: {
     HomeNav,
-    Modal,
-    BgColorPicker,
     SettingModal,
+    MessageModal,
   },
-  computed: {
-    visibility() {
-      return this.$store.getters.BgColor;
-    },
-  },
+
 };
 </script>
 

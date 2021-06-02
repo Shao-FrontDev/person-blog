@@ -18,7 +18,7 @@
 <script>
 import { PICKUPCOLOR } from "../store/mutations-type";
 export default {
-  name: "ColorBg",
+  name: "BgColorPicker",
   data() {
     return {
       colors: [

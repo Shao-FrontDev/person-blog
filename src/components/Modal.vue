@@ -16,7 +16,6 @@
 
 <script>
 import { CLOSESEETING } from "../store/mutations-type";
-import { EventBus } from "../utlis/eventBus";
 import Close from "../assets/Icons/close.svg";
 export default {
   props: {
@@ -43,12 +42,7 @@ export default {
   components: {
     Close,
   },
-  created() {
-    EventBus.$on("open", (payload) => {
-      console.log("open");
-      this.open = payload;
-    });
-  },
+
   methods: {
     close() {
       this.$emit("close", false);
