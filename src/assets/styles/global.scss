@@ -22,3 +22,23 @@ li {
   width: 26px;
   height: 26px;
 }
+
+// 动画
+
+@keyframes figure-animate {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

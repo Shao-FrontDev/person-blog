@@ -1,47 +1,49 @@
 <template>
-  <div id="app">
-    <Navigation />
-    <div class="view-container" :class="bgColog">
-      <router-view />
-    </div>
+  <div class="wrapper">
+    <header>background</header>
+    <section>
+      <ul>
+        <li
+          class="colorPicker"
+          v-for="(color, index) in colors"
+          :key="index"
+          :class="color"
+          @click="changeColor(color)"
+        ></li>
+      </ul>
+    </section>
   </div>
 </template>
 
 <script>
-import Navigation from "./components/Navigation.vue";
+import { PICKUPCOLOR } from "../store/mutations-type";
 export default {
-  name: "App",
-  components: {
-    Navigation,
+  name: "ColorBg",
+  data() {
+    return {
+      colors: [
+        "green-bg",
+        "black-bg",
+        "main-bg",
+        "red-bg",
+        "colour-bg",
+      ],
+    };
   },
-  computed: {
-    bgColog() {
-      return this.$store.getters.getBackGround;
+  methods: {
+    changeColor(color) {
+      this.$store.commit(PICKUPCOLOR, color);
     },
   },
 };
 </script>
 
-<style lang="scss">
-@import url("./assets/styles/global.scss");
-body {
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
+<style lang="scss" scoped>
+header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
 }
-#app {
-  width: 100vw;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.view-container {
-  padding: 30px 50px;
-  height: 95%;
-  overflow: hidden;
-}
-
 .colorPicker {
   margin-right: 10px;
   width: 30px;
@@ -85,5 +87,11 @@ body {
       #09f505 100%,
       rgba(9, 245, 5, 0) 0
     );
+}
+
+section {
+  ul {
+    display: flex;
+  }
 }
 </style>

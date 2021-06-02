@@ -3,7 +3,14 @@
     <section>
       <h1>Code</h1>
       <div class="project">
-        <div class="square"></div>
+        <div class="square">
+          <AnimateItem>
+            <Github />
+            <template v-slot:title>
+              <div>贪吃蛇</div>
+            </template>
+          </AnimateItem>
+        </div>
         <div class="square"></div>
         <div class="square"></div>
       </div>
@@ -22,7 +29,15 @@
 </template>
 
 <script>
-export default {};
+import AnimateItem from "../components/AnimateItem.vue";
+import Github from "../assets/Icons/github.svg";
+export default {
+  name: "Work",
+  components: {
+    AnimateItem,
+    Github,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -35,9 +50,11 @@ export default {};
   }
 
   h1 {
+    color: #faf8eb;
     display: inline-block;
     padding: 8px;
-    background-color: gray;
+    background-color: #76777b;
+    border-radius: 2px;
   }
 
   .project {
@@ -48,12 +65,20 @@ export default {};
       margin-right: 30px;
       height: 100px;
       width: 100px;
-      background-color: chocolate;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
 
 section {
   padding-top: 30px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
 }
 </style>

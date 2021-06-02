@@ -81,7 +81,6 @@ export default {
   },
   created() {
     this.blogs = this.$store.commit(GETBLOG);
-    console.log(this.blogs);
   },
 };
 </script>

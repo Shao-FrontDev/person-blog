@@ -18,7 +18,7 @@
       </div>
       <figcaption>留言</figcaption>
     </div>
-    <div class="figureBox">
+    <div class="figureBox" @click="changeBgColor">
       <div class="square">
         <Setting />
       </div>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { OPENSETTING } from "../store/mutations-type";
 import Support from "../assets/Icons/support.svg";
 import Bulb from "../assets/Icons/dengpao.svg";
 import Message from "../assets/Icons/liuyan.svg";
@@ -38,6 +39,11 @@ export default {
     Bulb,
     Message,
     Setting,
+  },
+  methods: {
+    changeBgColor() {
+      this.$store.commit(OPENSETTING);
+    },
   },
 };
 </script>
@@ -61,6 +67,10 @@ export default {
 .square {
   width: 50px;
   height: 50px;
+}
+
+figcaption {
+  color: #f2f2f2;
 }
 
 @keyframes figure-animate {

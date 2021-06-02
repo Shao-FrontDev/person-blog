@@ -114,7 +114,8 @@ export default {
       margin-right: 20px;
       font-weight: bolder;
       position: relative;
-      transition: 0.3s color ease;
+      transition: 1s color ease;
+
       &.router-link-exact-active::after {
         position: absolute;
         content: "";
@@ -127,7 +128,7 @@ export default {
         border-radius: 50%;
         z-index: -1;
       }
-      &:hover::after {
+      &:hover:after {
         position: absolute;
         top: 0;
         left: 50%;

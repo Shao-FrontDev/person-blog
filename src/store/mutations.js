@@ -1,4 +1,10 @@
-import { ADDBLOG, GETBLOG } from "./mutations-type";
+import {
+  ADDBLOG,
+  GETBLOG,
+  OPENSETTING,
+  CLOSESEETING,
+  PICKUPCOLOR,
+} from "./mutations-type";
 
 export default {
   [ADDBLOG](state, payload) {
@@ -14,5 +20,15 @@ export default {
   },
   [GETBLOG](state) {
     return state.blogs;
+  },
+
+  [CLOSESEETING](state) {
+    state.BgModal = false;
+  },
+  [OPENSETTING](state) {
+    state.BgModal = true;
+  },
+  [PICKUPCOLOR](state, payload) {
+    state.background = payload;
   },
 };

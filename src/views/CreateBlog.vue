@@ -37,7 +37,6 @@ export default {
   },
   methods: {
     saveBLog() {
-      console.log("save", this.blog);
       this.$store.commit(ADDBLOG, this.blog);
     },
   },
