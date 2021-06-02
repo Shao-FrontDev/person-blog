@@ -5,23 +5,28 @@
       <div class="project">
         <div class="square">
           <AnimateItem>
-            <Github />
+            <Money />
             <template v-slot:title>
-              <div>贪吃蛇</div>
+              <p>小记账</p>
             </template>
           </AnimateItem>
         </div>
-        <div class="square"></div>
-        <div class="square"></div>
-      </div>
-    </section>
-    <hr />
-    <section>
-      <h1>Code</h1>
-      <div class="project">
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
+        <div class="square">
+          <AnimateItem>
+            <Todo />
+            <template v-slot:title>
+              <p>KANKAN</p>
+            </template>
+          </AnimateItem>
+        </div>
+        <div class="square">
+          <AnimateItem>
+            <JavaScript />
+            <template v-slot:title>
+              <p>MVC</p>
+            </template>
+          </AnimateItem>
+        </div>
       </div>
     </section>
     <hr />
@@ -29,13 +34,17 @@
 </template>
 
 <script>
+import Todo from "../assets/Icons/todo.svg";
+import JavaScript from "../assets/Icons/js.svg";
 import AnimateItem from "../components/AnimateItem.vue";
-import Github from "../assets/Icons/github.svg";
+import Money from "../assets/Icons/money.svg";
 export default {
   name: "Work",
   components: {
     AnimateItem,
-    Github,
+    Money,
+    Todo,
+    JavaScript,
   },
 };
 </script>
@@ -80,5 +89,9 @@ section {
 .icon {
   width: 40px;
   height: 40px;
+}
+
+p {
+  color: #faf8eb;
 }
 </style>

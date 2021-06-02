@@ -38,7 +38,7 @@ body {
 
 .view-container {
   padding: 30px 50px;
-  height: 95%;
+  height: 90%;
   overflow: hidden;
 }
 

@@ -106,7 +106,7 @@ export default {
   background-color: colors.$secondary-color;
   justify-content: space-between;
   position: relative;
-  min-height: 42px;
+  min-height: 58px;
   z-index: 99;
 
   .nav-links {
