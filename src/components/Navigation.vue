@@ -98,12 +98,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use './../assets/styles/var.scss';
+@use './../assets/styles/colors.scss';
 .container {
   padding: 1em 6em;
   font-weight: bold;
   display: flex;
-  background-color: var.$secondary-color;
+  background-color: colors.$secondary-color;
   justify-content: space-between;
   position: relative;
   min-height: 42px;
@@ -120,7 +120,7 @@ export default {
         content: "";
         width: 30px;
         height: 30px;
-        background-color: var.$primay-color;
+        background-color: colors.$primay-color;
         top: 0;
         left: 50%;
         transform: translateX(-15px);
@@ -136,7 +136,7 @@ export default {
         width: 30px;
         transform: translateX(-15px);
         border-radius: 50%;
-        border: 3px solid #fad41b;
+        border: 3px solid colors.$primay-color;
       }
     }
   }
@@ -151,7 +151,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #fad41b;
+    background-color: colors.$primay-color;
     align-items: center;
 
     .link {
@@ -160,7 +160,7 @@ export default {
       padding: 10px 0;
       text-decoration: underline;
       &:hover {
-        color: #faf8eb;
+        color: colors.$secondary-color;
       }
     }
   }

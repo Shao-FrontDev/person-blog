@@ -1,14 +1,16 @@
 <template>
   <div class="home">
-    <H1>Home</H1>
+    <h1>Home</h1>
+    <HomeNav />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 
+import HomeNav from "../components/HomeNav.vue";
 export default {
   name: "Home",
-  components: {},
+  components: { HomeNav },
 };
 </script>
