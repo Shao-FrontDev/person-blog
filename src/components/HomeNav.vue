@@ -13,7 +13,7 @@
       <figcaption>说明</figcaption>
     </div>
     <div class="figureBox">
-      <div class="square">
+      <div class="square" @click="openMessageModal">
         <Message class="message-icon" />
       </div>
       <figcaption>留言</figcaption>
@@ -28,6 +28,8 @@
 </template>
 
 <script>
+
+
 import { OPENSETTING } from "../store/mutations-type";
 import Support from "../assets/Icons/support.svg";
 import Bulb from "../assets/Icons/dengpao.svg";
@@ -44,6 +46,7 @@ export default {
     changeBgColor() {
       this.$store.commit(OPENSETTING);
     },
+
   },
 };
 </script>
