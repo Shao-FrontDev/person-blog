@@ -2,25 +2,19 @@
   <div class="home">
     <h1>We are all in the gutter,</h1>
     <h1>but some of us are looking at the stars.</h1>
-    <SettingModal />
-    <MessageModal />
+
     <HomeNav />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import MessageModal from "../components/MessageModal.vue";
-import SettingModal from "../components/SettingModal.vue";
 import HomeNav from "../components/HomeNav.vue";
 export default {
   name: "Home",
   components: {
     HomeNav,
-    SettingModal,
-    MessageModal,
   },
-
 };
 </script>
 

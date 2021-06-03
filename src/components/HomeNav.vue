@@ -1,34 +1,82 @@
 <template>
   <div class="container">
-    <div class="figureBox">
+    <div class="figureBox" @click="openSupportModal">
       <div class="square">
         <Support class="support-icon" />
       </div>
       <figcaption>点赞</figcaption>
     </div>
-    <div class="figureBox">
+    <div class="figureBox" @click="openBriefModal">
       <div class="square">
         <Bulb />
       </div>
       <figcaption>说明</figcaption>
     </div>
-    <div class="figureBox">
+    <div class="figureBox" @click="openMessageModal">
       <div class="square">
         <Message class="message-icon" />
       </div>
       <figcaption>留言</figcaption>
     </div>
-    <div class="figureBox" @click="changeBgColor">
+    <div class="figureBox" @click="openSettingModal">
       <div class="square">
         <Setting />
       </div>
       <figcaption>设置</figcaption>
     </div>
+    <Modal
+      height="300"
+      width="250"
+      :backgroundColor="SupportModalBGCOLOR"
+      :visiability="SupportModalStatus"
+      @close="closeSupportModal"
+    >
+      <template v-slot:title>
+        <div>点赞</div>
+      </template>
+      <p>Hello world</p>
+    </Modal>
+    <Modal
+      height="300"
+      width="250"
+      :backgroundColor="SupportModalBGCOLOR"
+      :visiability="SettingModalStatus"
+      @close="closeSettingModal"
+    >
+      <template v-slot:title>
+        <div>设置</div>
+      </template>
+      <BgColorPicker />
+    </Modal>
+    <Modal
+      height="300"
+      width="250"
+      :backgroundColor="SupportModalBGCOLOR"
+      :visiability="MessageModalStatus"
+      @close="closeMessageModal"
+    >
+      <template v-slot:title>
+        <div>留言</div>
+      </template>
+    </Modal>
+    <Modal
+      height="300"
+      width="250"
+      :backgroundColor="SupportModalBGCOLOR"
+      :visiability="BriefModalStatus"
+      @close="closeBriefModal"
+    >
+      <template v-slot:title>
+        <div>说明</div>
+      </template>
+    </Modal>
   </div>
 </template>
 
 <script>
-import { OPENSETTING } from "../store/mutations-type";
+import Modal from "./Modal.vue";
+import BgColorPicker from "./BgColorPicker.vue";
+
 import Support from "../assets/Icons/support.svg";
 import Bulb from "../assets/Icons/dengpao.svg";
 import Message from "../assets/Icons/liuyan.svg";
@@ -39,10 +87,49 @@ export default {
     Bulb,
     Message,
     Setting,
+    Modal,
+    BgColorPicker,
   },
+
+  data() {
+    return {
+      SupportModalStatus: false,
+      SettingModalStatus: false,
+      MessageModalStatus: false,
+      BriefModalStatus: false,
+    };
+  },
+
+  computed: {
+    SupportModalBGCOLOR() {
+      return "#3EB595";
+    },
+  },
+
   methods: {
-    changeBgColor() {
-      this.$store.commit(OPENSETTING);
+    openSupportModal() {
+      this.SupportModalStatus = true;
+    },
+    closeSupportModal() {
+      this.SupportModalStatus = false;
+    },
+    openSettingModal() {
+      this.SettingModalStatus = true;
+    },
+    closeSettingModal() {
+      this.SettingModalStatus = false;
+    },
+    openMessageModal() {
+      this.MessageModalStatus = true;
+    },
+    closeMessageModal() {
+      this.MessageModalStatus = false;
+    },
+    openBriefModal() {
+      this.BriefModalStatus = true;
+    },
+    closeBriefModal() {
+      this.BriefModalStatus = false;
     },
   },
 };

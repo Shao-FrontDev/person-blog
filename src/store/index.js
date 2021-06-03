@@ -7,8 +7,10 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     blogs: [],
+    //Modal status
     BgModal: false,
     background: "main-bg",
+    SupportModalToggle: false,
   },
   mutations,
   actions: {},
@@ -19,6 +21,13 @@ export default new Vuex.Store({
     },
     getBackGround(state) {
       return state.background;
+    },
+    getSupportModalState(state) {
+      console.log(
+        "state.SupportModalToggle",
+        state.SupportModalToggle
+      );
+      return state.SupportModalToggle;
     },
   },
 });

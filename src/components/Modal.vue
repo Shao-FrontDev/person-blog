@@ -1,8 +1,8 @@
 <template>
   <div
     class="figure-pop"
-    v-show="visibility"
-    :style="figurePopStyle"
+    :style="widthAndHeight"
+    v-show="visiability"
   >
     <header>
       <Close class="close-icon" @click="close" />
@@ -15,14 +15,9 @@
 </template>
 
 <script>
-import { CLOSESEETING } from "../store/mutations-type";
 import Close from "../assets/Icons/close.svg";
 export default {
   props: {
-    visibility: {
-      type: Boolean,
-      default: false,
-    },
     height: {
       type: String,
       default: "250px",
@@ -35,6 +30,10 @@ export default {
       type: String,
       default: "#fad41b",
     },
+    visiability: {
+      type: Boolean,
+      required: true,
+    },
   },
   data() {
     return {};
@@ -46,12 +45,14 @@ export default {
   methods: {
     close() {
       this.$emit("close", false);
-      this.$store.commit(CLOSESEETING);
     },
   },
   computed: {
-    figurePopStyle() {
-      return { height: this.height, width: this.width };
+    widthAndHeight() {
+      return {
+        height: this.height + "px",
+        width: this.width + "px",
+      };
     },
     bgColor() {
       return {
