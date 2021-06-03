@@ -6,6 +6,7 @@
   >
     <header>
       <Close class="close-icon" @click="close" />
+
       <slot name="title"></slot>
     </header>
     <div class="figure-pop-main" :style="bgColor">

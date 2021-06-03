@@ -40,9 +40,10 @@ export default {
 
 <style lang="scss" scoped>
 header {
+  padding-top: 10px;
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .colorPicker {
   margin-right: 10px;

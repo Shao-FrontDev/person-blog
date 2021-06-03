@@ -37,9 +37,9 @@
       <p>Hello world</p>
     </Modal>
     <Modal
-      height="300"
+      height="250"
       width="250"
-      :backgroundColor="SupportModalBGCOLOR"
+      :backgroundColor="SettingModalBGCOLOR"
       :visiability="SettingModalStatus"
       @close="closeSettingModal"
     >
@@ -103,6 +103,9 @@ export default {
   computed: {
     SupportModalBGCOLOR() {
       return "#3EB595";
+    },
+    SettingModalBGCOLOR() {
+      return "#fad41b";
     },
   },
 
