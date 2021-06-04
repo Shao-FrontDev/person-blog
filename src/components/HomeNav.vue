@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="homeNav">
     <div class="figureBox" @click="openSupportModal">
       <div class="square">
         <Support class="support-icon" />
@@ -123,24 +123,39 @@ export default {
 
   methods: {
     openSupportModal() {
+      /*     SettingModalStatus: false,
+      MessageModalStatus: false,
+      BriefModalStatus: false, */
       this.SupportModalStatus = true;
+      this.SettingModalStatus = false;
+      this.MessageModalStatus = false;
+      this.BriefModalStatus = false;
     },
     closeSupportModal() {
       this.SupportModalStatus = false;
     },
     openSettingModal() {
+      this.SupportModalStatus = false;
       this.SettingModalStatus = true;
+      this.MessageModalStatus = false;
+      this.BriefModalStatus = false;
     },
     closeSettingModal() {
       this.SettingModalStatus = false;
     },
     openMessageModal() {
+      this.SupportModalStatus = false;
+      this.SettingModalStatus = true;
       this.MessageModalStatus = true;
+      this.BriefModalStatus = false;
     },
     closeMessageModal() {
       this.MessageModalStatus = false;
     },
     openBriefModal() {
+      this.SupportModalStatus = false;
+      this.SettingModalStatus = false;
+      this.MessageModalStatus = false;
       this.BriefModalStatus = true;
     },
     closeBriefModal() {
@@ -151,7 +166,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.homeNav {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 
 .figureBox {
   margin: 30px 0;

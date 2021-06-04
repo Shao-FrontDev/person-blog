@@ -135,6 +135,7 @@ export default {
 }
 
 .figure-pop-main {
+  z-index: 101;
   padding-top: 20px;
   height: 100%;
   display: flex;

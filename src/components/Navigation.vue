@@ -107,7 +107,7 @@ export default {
   justify-content: space-between;
   position: relative;
   min-height: 58px;
-  z-index: 99;
+  z-index: 50;
 
   .nav-links {
     .link {
