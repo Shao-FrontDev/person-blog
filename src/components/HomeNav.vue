@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div >
     <div class="figureBox" @click="openSupportModal">
       <div class="square">
         <Support class="support-icon" />
@@ -49,14 +49,19 @@
       <BgColorPicker />
     </Modal>
     <Modal
-      height="300"
-      width="250"
-      :backgroundColor="SupportModalBGCOLOR"
+      height="580"
+      width="540"
+      :backgroundColor="MessageModalBGCOLOR"
       :visiability="MessageModalStatus"
       @close="closeMessageModal"
+      class="messageModal"
     >
       <template v-slot:title>
         <div>留言</div>
+      </template>
+      <MessageList />
+      <template v-slot:messageInput>
+        <MessageInput class="messageInput" />
       </template>
     </Modal>
     <Modal
@@ -74,8 +79,10 @@
 </template>
 
 <script>
+import MessageInput from "./MessageInput.vue";
 import Modal from "./Modal.vue";
 import BgColorPicker from "./BgColorPicker.vue";
+import MessageList from "./MessageList";
 
 import Support from "../assets/Icons/support.svg";
 import Bulb from "../assets/Icons/dengpao.svg";
@@ -89,6 +96,8 @@ export default {
     Setting,
     Modal,
     BgColorPicker,
+    MessageList,
+    MessageInput,
   },
 
   data() {
@@ -106,6 +115,9 @@ export default {
     },
     SettingModalBGCOLOR() {
       return "#fad41b";
+    },
+    MessageModalBGCOLOR() {
+      return "#2fd2db";
     },
   },
 
@@ -139,11 +151,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  position: fixed;
-  top: 100px;
-  right: 40px;
-}
+
 
 .figureBox {
   margin: 30px 0;

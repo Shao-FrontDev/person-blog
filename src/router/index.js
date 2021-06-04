@@ -1,9 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
 import Blogs from "../views/Blogs.vue";
 import Work from "../views/Work.vue";
 import CreateBlog from "../views/CreateBlog.vue";
+
+const Home = () => import("../views/Home.vue");
 
 Vue.use(VueRouter);
 

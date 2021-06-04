@@ -3,8 +3,9 @@
     class="figure-pop"
     :style="widthAndHeight"
     v-show="visiability"
+    ref="draggableContainer"
   >
-    <header>
+    <header @mousedown="dragMouseDown">
       <Close class="close-icon" @click="close" />
 
       <slot name="title"></slot>
@@ -12,6 +13,7 @@
     <div class="figure-pop-main" :style="bgColor">
       <slot></slot>
     </div>
+    <slot name="messageInput" class="messageInput"></slot>
   </div>
 </template>
 
@@ -37,7 +39,14 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      positions: {
+        clientX: undefined,
+        clientY: undefined,
+        movementX: 0,
+        movementY: 0,
+      },
+    };
   },
   components: {
     Close,
@@ -46,6 +55,37 @@ export default {
   methods: {
     close() {
       this.$emit("close", false);
+    },
+    dragMouseDown(e) {
+      e.preventDefault();
+      console.log("触发");
+      this.positions.clientX = e.clientX;
+      this.positions.clientY = e.clientY;
+
+      document.onmousemove = this.elementDrag;
+      document.onmouseup = this.closeDragElement;
+    },
+    elementDrag: function(event) {
+      event.preventDefault();
+      this.positions.movementX =
+        this.positions.clientX - event.clientX;
+      this.positions.movementY =
+        this.positions.clientY - event.clientY;
+      this.positions.clientX = event.clientX;
+      this.positions.clientY = event.clientY;
+      // set the element's new position:
+      this.$refs.draggableContainer.style.top =
+        this.$refs.draggableContainer.offsetTop -
+        this.positions.movementY +
+        "px";
+      this.$refs.draggableContainer.style.left =
+        this.$refs.draggableContainer.offsetLeft -
+        this.positions.movementX +
+        "px";
+    },
+    closeDragElement() {
+      document.onmouseup = null;
+      document.onmousemove = null;
     },
   },
   computed: {
@@ -66,14 +106,16 @@ export default {
 
 <style lang="scss" scoped>
 .figure-pop {
-  overflow: hidden;
-  border-radius: 8px;
-  border: 1px solid rgb(138, 138, 138);
+  &::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+  }
+  overflow: auto;
   position: fixed;
-  z-index: 999;
   left: 50%;
   top: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  border: 1px solid rgb(138, 138, 138);
   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
 
   header {

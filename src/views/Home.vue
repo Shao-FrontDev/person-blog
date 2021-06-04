@@ -32,4 +32,8 @@ h1 {
     font-size: 76px;
   }
 }
+
+.home {
+  position: relative;
+}
 </style>
