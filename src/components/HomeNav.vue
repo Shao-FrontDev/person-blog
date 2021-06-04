@@ -145,7 +145,7 @@ export default {
     },
     openMessageModal() {
       this.SupportModalStatus = false;
-      this.SettingModalStatus = true;
+      this.SettingModalStatus = false;
       this.MessageModalStatus = true;
       this.BriefModalStatus = false;
     },

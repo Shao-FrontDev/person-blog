@@ -13,21 +13,33 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    meta: {
+      title: "Home",
+    },
   },
   {
     path: "/blogs",
     name: "Blogs",
     component: Blogs,
+    meta: {
+      title: "Blog",
+    },
   },
   {
     path: "/work",
     name: "Work",
     component: Work,
+    meta: {
+      title: "Work",
+    },
   },
   {
     path: "/create",
     name: "CreateBlog",
     component: CreateBlog,
+    meta: {
+      title: "CreateBlog",
+    },
   },
   {
     path: "/about",
@@ -39,6 +51,9 @@ const routes = [
       import(
         /* webpackChunkName: "about" */ "../views/About.vue"
       ),
+    meta: {
+      title: "About",
+    },
   },
 ];
 
@@ -46,4 +61,8 @@ const router = new VueRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title;
+  next();
+});
 export default router;
