@@ -74,6 +74,9 @@
       <template v-slot:title>
         <div>说明</div>
       </template>
+      <div>
+        <p>一个由Vue 和 Express MongoDB 技术栈写的个人博客</p>
+      </div>
     </Modal>
   </div>
 </template>

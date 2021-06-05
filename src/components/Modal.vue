@@ -109,7 +109,7 @@ export default {
   &::-webkit-scrollbar {
     display: none; /* Chrome Safari */
   }
-  overflow: auto;
+  overflow: hidden;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -119,6 +119,7 @@ export default {
   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
 
   header {
+    cursor: move;
     background-color: #e9e9e9;
     position: relative;
     text-align: center;
@@ -135,10 +136,16 @@ export default {
 }
 
 .figure-pop-main {
-  z-index: 101;
-  padding-top: 20px;
+  padding: 20px;
   height: 100%;
   display: flex;
   justify-content: center;
+}
+
+.messageInput {
+  z-index: 99;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
 }
 </style>
