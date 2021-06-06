@@ -20,12 +20,17 @@
           </AnimateItem>
         </div>
         <div class="square">
-          <AnimateItem>
-            <JavaScript />
-            <template v-slot:title>
-              <p>MVC</p>
-            </template>
-          </AnimateItem>
+          <a
+            href="https://shao-frontdev.github.io/MVC_Tasks/index.html"
+            target="_black"
+          >
+            <AnimateItem>
+              <JavaScript />
+              <template v-slot:title>
+                <p>MVC</p>
+              </template>
+            </AnimateItem>
+          </a>
         </div>
       </div>
     </section>

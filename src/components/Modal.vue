@@ -1,20 +1,22 @@
 <template>
-  <div
-    class="figure-pop"
-    :style="widthAndHeight"
-    v-show="visiability"
-    ref="draggableContainer"
-  >
-    <header @mousedown="dragMouseDown">
-      <Close class="close-icon" @click="close" />
+  <transition name="fade">
+    <div
+      class="figure-pop"
+      :style="widthAndHeight"
+      v-show="visiability"
+      ref="draggableContainer"
+    >
+      <header @mousedown="dragMouseDown">
+        <Close class="close-icon" @click="close" />
 
-      <slot name="title"></slot>
-    </header>
-    <div class="figure-pop-main" :style="bgColor">
-      <slot></slot>
+        <slot name="title"></slot>
+      </header>
+      <div class="figure-pop-main" :style="bgColor">
+        <slot></slot>
+      </div>
+      <slot name="messageInput" class="messageInput"></slot>
     </div>
-    <slot name="messageInput" class="messageInput"></slot>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -147,5 +149,14 @@ export default {
   position: absolute;
   bottom: -50px;
   left: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
