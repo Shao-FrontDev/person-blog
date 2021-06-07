@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { PICKUPCOLOR } from "../store/mutations-type";
+import { PICKUPCOLOR } from "@/store/mutations-type";
 export default {
   name: "BgColorPicker",
   data() {

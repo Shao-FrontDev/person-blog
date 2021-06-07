@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Like from "./../../assets/Icons/like.svg";
+import Like from "@/assets/Icons/like.svg";
 export default {
   name: "MessageListItem",
   props: {

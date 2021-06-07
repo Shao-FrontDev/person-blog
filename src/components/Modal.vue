@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Close from "../assets/Icons/close.svg";
+import Close from "@/assets/Icons/close.svg";
 export default {
   props: {
     height: {
@@ -99,7 +99,7 @@ export default {
     },
     bgColor() {
       return {
-        backgroundColor: this.backgroundColor,
+        background: this.backgroundColor,
       };
     },
   },

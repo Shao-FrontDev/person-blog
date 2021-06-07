@@ -54,8 +54,8 @@
 
 <script>
 import Time from "./Time.vue";
-import Github from "../assets/Icons/github.svg";
-import menuIcon from "../assets/Icons/bars-regular.svg";
+import Github from "@/assets/Icons/github.svg";
+import menuIcon from "@/assets/Icons/bars-regular.svg";
 
 export default {
   name: "Navigation",

@@ -34,7 +34,7 @@
       <template v-slot:title>
         <div>点赞</div>
       </template>
-      <p>Hello world</p>
+      <h1 class="like">{{ like }}</h1>
     </Modal>
     <Modal
       height="250"
@@ -75,7 +75,9 @@
         <div>说明</div>
       </template>
       <div>
-        <p>一个由Vue 和 Express MongoDB 技术栈写的个人博客</p>
+        <p>
+          一个由Vue 和 Express MongoDB 技术栈写的个人博客
+        </p>
       </div>
     </Modal>
   </div>
@@ -87,10 +89,10 @@ import Modal from "./Modal.vue";
 import BgColorPicker from "./BgColorPicker.vue";
 import MessageList from "./MessageList";
 
-import Support from "../assets/Icons/support.svg";
-import Bulb from "../assets/Icons/dengpao.svg";
-import Message from "../assets/Icons/liuyan.svg";
-import Setting from "../assets/Icons/setting.svg";
+import Support from "@/assets/Icons/support.svg";
+import Bulb from "@/assets/Icons/dengpao.svg";
+import Message from "@/assets/Icons/liuyan.svg";
+import Setting from "@/assets/Icons/setting.svg";
 export default {
   components: {
     Support,
@@ -109,18 +111,23 @@ export default {
       SettingModalStatus: false,
       MessageModalStatus: false,
       BriefModalStatus: false,
+      timer: null,
+      like: 0,
     };
   },
 
   computed: {
     SupportModalBGCOLOR() {
-      return "#3EB595";
+      return "linear-gradient(to left, #40e0d0, #ff8c00, #ff0080)";
     },
     SettingModalBGCOLOR() {
       return "#fad41b";
     },
     MessageModalBGCOLOR() {
       return "#2fd2db";
+    },
+    BrifModalBGCOLOR() {
+      return "linear-gradient(to left, #00b09b, #96c93d)";
     },
   },
 
@@ -129,10 +136,14 @@ export default {
       /*     SettingModalStatus: false,
       MessageModalStatus: false,
       BriefModalStatus: false, */
+      this.like = this.like + 1;
       this.SupportModalStatus = true;
       this.SettingModalStatus = false;
       this.MessageModalStatus = false;
       this.BriefModalStatus = false;
+      this.timer = setTimeout(() => {
+        this.SupportModalStatus = false;
+      }, 2000);
     },
     closeSupportModal() {
       this.SupportModalStatus = false;
@@ -164,6 +175,9 @@ export default {
     closeBriefModal() {
       this.BriefModalStatus = false;
     },
+  },
+  destroyed() {
+    this.timer = null;
   },
 };
 </script>
@@ -214,5 +228,12 @@ figcaption {
 .icon {
   width: 35px;
   height: 35px;
+}
+
+.like {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>

@@ -1,3 +1,8 @@
+const path = require("path");
+
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
 module.exports = {
   chainWebpack: (config) => {
     const svgRule = config.module.rule("svg");
@@ -10,5 +15,7 @@ module.exports = {
       .end()
       .use("vue-svg-loader")
       .loader("vue-svg-loader");
+
+    config.resolve.alias.set("@", resolve("src"));
   },
 };

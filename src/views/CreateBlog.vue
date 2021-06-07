@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { ADDBLOG } from "../store/mutations-type.js";
+import { ADDBLOG } from "@/store/mutations-type.js";
 import { VueEditor } from "vue2-editor";
 export default {
   name: "CreateBlog",

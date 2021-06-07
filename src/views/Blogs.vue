@@ -22,7 +22,7 @@
   </div>
 </template>
 <script>
-import { GETBLOG } from "../store/mutations-type.js";
+import { GETBLOG } from "@/store/mutations-type.js";
 export default {
   data() {
     return {

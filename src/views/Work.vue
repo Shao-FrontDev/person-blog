@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import Todo from "../assets/Icons/todo.svg";
-import JavaScript from "../assets/Icons/js.svg";
-import AnimateItem from "../components/AnimateItem.vue";
-import Money from "../assets/Icons/money.svg";
+import Todo from "@/assets/Icons/todo.svg";
+import JavaScript from "@/assets/Icons/js.svg";
+import AnimateItem from "@/components/AnimateItem.vue";
+import Money from "@/assets/Icons/money.svg";
 export default {
   name: "Work",
   components: {
