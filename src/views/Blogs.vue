@@ -5,8 +5,9 @@
       <div class="content">
         <div
           class="subTitle"
-          v-for="(item, index) in blogTitle"
+          v-for="(item, index) in blogs"
           :key="index"
+          @click="activeBlog(item.id)"
         >
           <h2>
             {{ item.title }}
@@ -16,71 +17,50 @@
       </div>
     </div>
     <div class="right">
-      <div class="title">Blog-title</div>
-      <div class="content"></div>
+      <div class="title">{{ blog.title }}</div>
+      <div class="content">{{ blog.content }}</div>
     </div>
   </div>
 </template>
 <script>
-import { GETBLOG } from "@/store/mutations-type.js";
+// import { GETBLOG } from "@/store/mutations-type.js";
 export default {
   data() {
     return {
-      blogTitle: [
+      blogs: [
         {
           title: "Hello world",
           timestamp: "2021-03-26 03:58",
+          content: "This is a blog",
+          id: 1,
         },
         {
-          title: "Hello world",
+          title: "Hello React",
           timestamp: "2021-03-26 03:58",
+          content: "This is a react",
+          id: 2,
         },
         {
-          title: "Hello world",
+          title: "Hello vue",
           timestamp: "2021-03-26 03:58",
-        },
-        {
-          title: "Hello world",
-          timestamp: "2021-03-26 03:58",
-        },
-        {
-          title: "Hello world",
-          timestamp: "2021-03-26 03:58",
-        },
-        {
-          title: "Hello world",
-          timestamp: "2021-03-26 03:58",
-        },
-        {
-          title: "Hello world",
-          timestamp: "2021-03-26 03:58",
-        },
-        {
-          title: "Hello world",
-          timestamp: "2021-03-26 03:58",
-        },
-        {
-          title: "Hello world",
-          timestamp: "2021-03-26 03:58",
-        },
-        {
-          title: "Hello world",
-          timestamp: "2021-03-26 03:58",
-        },
-        {
-          title: "Hello world",
-          timestamp: "2021-03-26 03:58",
-        },
-        {
-          title: "Hello world",
-          timestamp: "2021-03-26 03:58",
+          content: "This is a vue",
+          id: 3,
         },
       ],
-      blogs: null,
+      blog: null,
+      activeIndex: 1,
     };
   },
   created() {
-    this.blogs = this.$store.commit(GETBLOG);
+    this.blog = this.blogs.find((blog) => blog.id === 1);
+  },
+  methods: {
+    activeBlog(index) {
+      this.activeIndex = index;
+      this.blog = this.blogs.find(
+        (blog) => blog.id === index
+      );
+    },
   },
 };
 </script>
@@ -92,6 +72,7 @@ export default {
   display: flex;
   overflow: hidden;
   .left {
+    background: #fff;
     border: 1px solid #c7c7c7;
     border-radius: 16px;
     overflow: hidden;
